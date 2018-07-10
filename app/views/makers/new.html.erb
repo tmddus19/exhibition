@@ -1,0 +1,8 @@
+<h1>새 작가 업로드</h1>
+
+<%= form_tag("/makers") do %>
+    이름 : <%= text_field_tag(:name) %><br>
+    연락처 : <%= text_field_tag(:phone_number) %><br>
+    이메일 : <%= email_field_tag(:email) %><br>
+    <%= submit_tag("작가추가") %>
+<% end %>

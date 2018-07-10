@@ -1,0 +1,18 @@
+<h1>작가 정보</h1>
+<%= link_to '새 작가 올리기', new_maker_path %>
+<table>
+    <tr>
+        <th>이름</th>
+        <th>이메일</th>
+    </tr>
+    
+    <% @makers.each do |m| %>
+    <tr>
+        <td><%= m.name %></td>
+        <td><%= m.email %></td>
+        <td><%= link_to "연락처 보기","/makers/#{m.id}" %></td>
+        <td><%= link_to "수정","/makers/#{m.id}/edit" %></td>
+        <td><%= link_to "삭제","/makers/#{m.id}", method:"delete", data: {confirm: "삭제하시겠습니까?"}  %></td>
+    </tr>
+    <% end %>
+</table>

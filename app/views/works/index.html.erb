@@ -1,0 +1,23 @@
+<h1>3D Printer반 작품 전시회</h1>
+<!--새로운 작품을 업로드할 수 있는 페이지-->
+<%= link_to '새 작품 올리기', new_work_path %>
+<%= link_to '새 작가 올리기', new_maker_path %>
+
+<!--현재 저장된 모든 작품을 보여준다.-->
+
+
+<table>
+    <tr>
+        <th>제목</th>
+        <th>설명</th>
+    </tr>
+    <% @works.each do|w| %>
+    <tr>
+        <td><%= w.title %></td>
+        <td><%= w.desc %></td>
+        <td><%= link_to '상세보기', "/works/#{w.id}"%></td>
+        <td><%= link_to '수정', "/works/#{w.id}/edit"%></td>
+        <td><%= link_to '지우기', "/works/#{w.id}", method: "delete", data: {confirm: "진짜?"} %></td>
+    </tr>
+    <% end %>
+</table>

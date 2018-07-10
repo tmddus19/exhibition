@@ -1,0 +1,9 @@
+<h1>수정하기</h1>
+
+<%= form_tag("/works/#{@work.id}", method: "put") do %>
+    제목 : <%= text_field_tag(:title, @work.title) %><br>
+    설명 : <%= text_field_tag(:desc, @work.desc) %><br>
+    이미지url : <%= text_field_tag(:image, @work.image) %><br>
+    메이커_id : <%= text_field_tag(:maker_id, @work.maker_id) %><br>
+    <%= submit_tag("작품 올리기") %>
+<% end %>
