@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  
   def index
     #모든작품을보여준다.
     @works = Work.all
@@ -16,8 +18,12 @@ class WorksController < ApplicationController
       image: params[:image],
       maker_id: params[:maker_id]
     )
-    work.save
+    if work.save
     redirect_to "/works/#{work.id}"
+    else
+     flash[:msg] = "제목 혹은 내용이 비어있으면 안됩니다."
+     redirect_to new_work_path
+    end
   end
 
   def show

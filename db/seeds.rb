@@ -9,4 +9,11 @@ makers.each do |maker|
         email: maker[3],
         phone_number: maker[2]
     )
+    
+    User.create(
+        email: "admin@admin.com",
+        password: "12341234",
+        password_confirmation: "12341234",
+        is_admin?: true
+    )
 end

@@ -1,0 +1,26 @@
+<h1>회원정보</h1>
+<!--회원정보(이메일, 관리자 여부)-->
+<table>
+    <tr>
+        <th>이메일</th>
+        <th>역할</th>
+        <th>로그인 횟수</th>
+        <th>로그인 시간</th>
+        <th>로그인 ip</th>
+
+    </tr>
+    <% @users.each do |user|%>
+    <tr>
+        <td><%= user.email %></td>
+        <td><%= user.is_admin? ? "관리자" : "양민" %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.current_sign_in_at %></td>
+        <td><%= user.current_sign_in_ip %></td>
+        
+        
+        <td><%= link_to "역할바꾸기", "/admin/users/#{user.id}/change", data: {confirm: "진짜?"} %></td>
+        
+    </tr>
+    
+    <% end %>
+</table>
